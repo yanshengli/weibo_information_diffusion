@@ -17,7 +17,7 @@ DEMO:
 
 <img src="images/img1.png" alt="img1">
 <img src="images/img2.png" alt="img2">
-<img src="images/img3.png" alt="img3">
+<img src="images/image3.png" alt="img3">
 
 flask-web-application
 microblog application with flask
