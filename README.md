@@ -21,18 +21,15 @@ DEMO:
 <img src="images/img2.png" alt="img2">
 <img src="images/image3.png" alt="img3">
 
-技术架构：
+架构环境：
 
-flask-web-application
-microblog application with flask
+	1.python2.7
 
-build a web-application based on nginx+flask+uwsgi+sqlachmey if you want to use this demo,you should first configure the following environment:
+	2.nginx+uwsgi-python-plugin
 
-1.python2.7
-
-2.nginx+uwsgi-python-plugin
-
-3.install sqlachmey
+	3.install sqlachmey
+	
+	4.d3.js
 
 功能框架：
 
