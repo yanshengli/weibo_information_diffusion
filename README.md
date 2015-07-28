@@ -7,13 +7,13 @@ weibo
 
 功能:
 
-* 用户注册、登录
-* 发表、转发微博
-* 查看用户资料
-* 查看用户关注、粉丝名单
-* 查看我的圈子的动态
-* 采用d3.js展示信息传播过程
-* 采用highcharts展示信息演化速度
+	* 用户注册、登录
+	* 发表、转发微博
+	* 查看用户资料
+	* 查看用户关注、粉丝名单
+	* 查看我的圈子的动态
+	* 采用d3.js展示信息传播过程
+	* 采用highcharts展示信息演化速度
 
 DEMO:
 
@@ -33,8 +33,8 @@ DEMO:
 
 功能框架：
 
-mywebsite.py：后台application主程序
+	mywebsite.py：后台application主程序
 
-schema.sql：数据库
+	schema.sql：数据库
 
-build_graph_curve.py：构建信息传播基础拓扑，采用networkx库处理数据，构建信息演化动态图，采用Numpy开源库处理数据
+	build_graph_curve.py：构建信息传播基础拓扑，采用networkx库处理数据，构建信息演化动态图，采用Numpy开源库处理数据
