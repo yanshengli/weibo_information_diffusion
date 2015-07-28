@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+ <style type="text/css">
+	a:link {color: #FF0000} /* 未访问的链接 */
+	a:visited {color: #00FF00} /* 已访问的链接 */
+	a:hover {color: #FF00FF} /* 鼠标移动到链接上 */
+	a:active {color: #0000FF} /* 选定的链接 */
+</style>
+{% block body %}
+<div class="users">
+	<table border="1">
+  		<tr>
+    			<th>user_id</th>
+    			<th>user_name</th>
+			<th>user_email</th>
+			<th>action</th>
+  		</tr>
+	{% for user in all_user %}
+  		<tr>
+    			<td>{{user.user_id}}</td>
+    			<td>{{user.username}}</td>
+			<td>{{user.email}}</td>
+			<td>
+				<a  title="删除前请仔细确认" style="color: #FF0000" href="{{ url_for('del_user', username=user.username)}}">
+				删除</a>
+			</td>
+
+  		</tr>
+	{% endfor %}
+	</table>
+</div>
+{% endblock %}
+

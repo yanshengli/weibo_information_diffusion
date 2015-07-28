@@ -1,0 +1,314 @@
+body {
+    background: #E2E2E2;
+    font-family: Consolas,Monaco,'Andale Mono',monospace;
+    font-size: 14px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #196EAA;
+}
+
+footer {
+    float: right;
+    text-align: center;
+    margin-top: 100px;
+    margin-right: 35%;
+}
+
+div.intro {
+    background: white;
+    float: left;
+    margin-left: 5%;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    width: 200px;
+    border:2px solid;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+div.intro table {
+    margin: auto;
+    font-size: 130%;
+    border-collapse:collapse;
+    border-style: none;
+}
+
+div.intro td {
+    border: 1px solid black;
+    border-top-style: none;
+    border-bottom-style: none;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+div.intro td:first-child {
+    border-left-style: none;
+}
+
+div.intro td:last-child {
+    border-right-style: none;
+}
+
+div.intro button {
+    width: 60px;
+    height: 22px;
+    border-radius:8px;
+    -moz-border-radius:8px;
+    background-color: #EAEAEA;
+}
+
+div.intro button:hover {
+    background-color: #EEB422;
+    color: white;
+}
+
+.username {
+    font-size: 130%;   
+}
+
+input[type="text"],
+input[type="password"] {
+    background: white;
+    border: 1px solid #BFE6E2;
+    padding: 2px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    color: #105751;
+}
+
+input[type="submit"] {
+    background: #105751;
+    border: 1px solid #073B36;
+    padding: 1px 3px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    color: white;
+}
+
+div.page {
+    margin-left: 60px;
+    background: white;
+    width: 68%;
+    margin: 30px auto;
+    margin-left: 30%;
+    border:2px solid;
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius: 15px;
+}
+
+@media screen and (max-width:1000px) {
+    div.page {
+        margin-right: 10%;
+        width: 80%;
+        float: right;
+    }
+
+    div.intro {
+        width: 40%;
+        margin-left: 30%;
+    }
+}
+
+@media screen and (max-width:480px) {
+    div.page {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    div.intro {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    footer {
+        margin-right: 10%;
+    }
+}
+
+div.page h1 {
+    margin-left: 8%;
+    color: black;
+    letter-spacing: 1px;
+    text-shadow: 10px 10px 0px #DCDCDC;
+    font-size: 40px;
+}
+
+
+div.page div.navigation {
+    background: #E2E2E2;
+    padding: 4px 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
+    color: #888;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+div.page div.navigation a {
+    color: #444;
+    font-weight: bold;
+}
+
+div.page h2 {
+    margin: 0 0 15px 0;
+    color: #105751;
+    text-shadow: 0 1px 2px #ccc;
+}
+
+div.page div.body {
+    padding: 10px;
+    padding-bottom: 30px;
+}
+
+
+div.page div.followstatus{
+    border: 1px solid #ccc;
+    background: #E2E2E2;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    padding: 3px;
+    font-size: 13px;
+}
+
+div.page ul.messages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.page ul.messages li {
+    margin: 10px 0;
+    padding: 5px;
+    background: white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    min-height: 48px;
+}
+
+div.page ul.messages p {
+    margin: 0;
+}
+
+div.page ul.messages li img {
+    float: left;
+    padding: 0 10px 0 0;
+}
+
+div.page ul.messages li small {
+    font-size: 0.9em;
+    color: #888;
+}
+
+div.page div.twitbox {
+    margin: 10px 0;
+    padding: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+div.page div.twitbox p {
+    margin: 0;
+}
+
+div.page textarea {
+    height: 50px;
+    text-align: top;
+    font-size: 110%;
+    width: 85%;
+}
+
+div.page div.twitbox input[type="submit"] {
+    width: 8%;
+    min-width: 50px;
+    max-width: 80px;
+    margin-top: 5px;
+    margin-left: 77%;
+}
+
+div.profile {
+    margin-left: 10%;
+}
+
+div.edit_profile {
+    float: right;
+    margin-right: 15%;
+}
+
+ul.flashes {
+    list-style: none;
+    margin: 10px 10px 0 10px;
+    padding: 0;
+}
+
+ul.flashes li {
+    background: #E2E2E2;
+    border: 1px solid #81CEC6;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    padding: 4px;
+    font-size: 13px;
+}
+
+div.error {
+    margin: 10px 0;
+    background: #FAE4E4;
+    border: 1px solid #DD6F6F;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    padding: 4px;
+    font-size: 13px;
+}
+
+#share_form {
+    display: none;
+}
+
+.share {
+    float: right;
+    margin-right: 60px;
+    font-size: 85%;
+    color: #888;
+    cursor: pointer;
+}
+
+.share_button {
+    margin-left: 85%;
+    cursor: pointer;
+}
+
+.delete {
+    font-size: 85%;
+    color: #888;
+    float: right;
+    margin-left: -40px;
+    margin-right: 20px;
+}
+
+div.users {
+    min-height:200px;
+    margin: 20px;
+}
+
+div.user {
+    float: left;
+    width: 100px;
+    text-align: center;
+}
+
+

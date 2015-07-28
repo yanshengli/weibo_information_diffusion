@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  {% if request.endpoint == 'public_weibo' %}
+    所有微博
+  {% elif request.endpoint == 'user_weibo' %}
+    {{ profile_user.username }}的微博
+  {% else %}
+    我的圈子
+  {% endif %}
+{% endblock %}
+
+{% block body %}
+  <h2>{{ self.title() }}</h2>
+  {% if g.user %}
+    {% if request.endpoint == 'user_weibo' %}
+      
+    {% elif request.endpoint == 'weibo' %}
+      <div class=twitbox>
+        <h3></h3>
+        <form action="{{ url_for('add_message') }}" method=post>
+          <p><textarea name=text size=120 placeholder="有什么新鲜事想告诉大家， {{ g.user.username }}?"></textarea>
+             <input type=submit value="发布"></p>
+        </form>
+      </div>
+    {% endif %}
+  {% endif %}
+  <ul class=messages>
+
+  <hr>
+  {% for message in messages %}    
+    <li><img src="{{ message.email|gravatar(size=48) }}"><p>
+      <strong><a href="{{ url_for('user_weibo', username=message.username)}}">{{ message.username }}</a></strong>
+      <small>&mdash; {{ message.pub_date|datetimeformat }}</small><br>
+      {{ message.text }}<br>
+      <script>
+	 function show_share_form() {
+          share_form = document.getElementById("share_form");
+	  share_form.style.display = "block";
+        }
+      </script>
+      {% if message.username == g.user.username %}
+        <a href="{{ url_for('delete', message_id=message.message_id) }}" class="delete">删除</a>
+      {% endif %}
+      <a onclick="show_share_form(); this.style.display='none';" class="share">转发</a>
+      <form id="share_form" action="{{ url_for('add_message') }}" method=post>
+        <textarea type=text name=text size=60 class="share_text">//@{{ message.username }}:&nbsp;{{ message.text }}</textarea>
+        <input class="share_button" type="submit" value="转发">
+      </form>
+    </li><hr>
+  {% else %}
+    <li><em>还没有任何微博.</em>
+  i=i+1;
+  {% endfor %}
+  </ul>
+  <span id="spanFirst">
+  "<a href='?page=$pre_page'>前一页</a>
+</span> 
+<span id="spanPre">上一页</span> 
+<span id="spanNext">下一页</span>
+ <span id="spanLast">尾页</span> 
+ 第<span id="spanPageNum"></span>页/共<span id="spanTotalPage"></span>页
+  <script>
+  </script>
+{% endblock %}

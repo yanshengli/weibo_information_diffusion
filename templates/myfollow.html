@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	{% if request.endpoint == 'following' %}
+		{{ profile_user.username }}的关注
+	{% else %}
+		{{ profile_user.username }}的粉丝
+	{% endif %}
+{% endblock %}
+
+{% block body %}
+<div class="users">
+	{% if request.endpoint == 'following' %}
+		{% if following == 0 %}
+			没有关注
+		{% else %}
+			{% for user in myfollow_users %}
+			<div class=user>
+				<a href="{{ url_for('user_weibo', username=user.username)}}"><img src="{{ user.email|gravatar(size=48) }}"></a><br>
+				<a href="{{ url_for('user_weibo', username=user.username)}}">{{ user.username }}</a>
+			</div>
+			{% endfor %}
+		{% endif %}
+	{% else %}
+		{% if fans == 0 %}
+			没有粉丝
+		{% else %}
+			{% for user in myfollow_users %}
+			<div class=user>
+				<a href="{{ url_for('user_weibo', username=user.username)}}"><img src="{{ user.email|gravatar(size=48) }}"></a><br>
+				<a href="{{ url_for('user_weibo', username=user.username)}}">{{ user.username }}</a>
+			</div>
+			{% endfor %}
+		{% endif %}
+	{% endif %}
+</div>
+{% endblock %}

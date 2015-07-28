@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="users">
+	{% for user in all_user %}
+		<div class=user>
+			<a href="{{ url_for('user_weibo', username=user.username)}}"><img src="{{ user.email|gravatar(size=48) }}"></a><br>
+			<a href="{{ url_for('user_weibo', username=user.username)}}">{{ user.username }}</a>
+		</div>
+	{% endfor %}
+</div>
+{% endblock %}

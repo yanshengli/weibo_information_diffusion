@@ -1,0 +1,82 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} | Weibo</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+{% if g.user %}
+  <div class="intro">
+      <img src="{{ profile_user.email|gravatar(size=100) }}"><br><br>
+      <strong><a class="username" href="{{ url_for('user_weibo', username=profile_user.username)
+      }}">{{ profile_user.username }}</a></strong>
+      {% if g.user.username != profile_user.username %}
+        {% if followed %}
+          <button class="isfollow" onmouseover="this.style.color='#000';"><a href="{{ url_for('unfollow_user', username=profile_user.username)}}">取消关注</a></button>
+        {% else %}
+          <button class="isfollow" onmouseover="this.style.color='#000';"><a href="{{ url_for('follow_user', username=profile_user.username)}}">关注</a></button>
+        {% endif %}
+      {% endif %}
+     <br>
+     {{ profile_user.signature }}<br><br>
+     <table>
+       <tr>
+        <td>
+          <div>
+            <a href="{{ url_for('following', username=profile_user.username)}}">关注<br>{{ following }}</a>
+          </div>
+        </td>
+        <td>
+          <div>
+            <a href="{{ url_for('fans', username=profile_user.username)}}">粉丝<br>{{ fans }}</a>
+          </div>
+        </td>
+        <td>
+          <div>
+            <a href="{{ url_for('user_weibo', username=profile_user.username)}}">微博<br>{{ num_weibo }}</a>
+          </div>
+        </td>
+       </tr>
+     </table>
+     邮箱: {{ profile_user.email }}<br>
+     注册日期: {{ profile_user.reg_date }}<br>
+  </div>
+{% endif %}
+
+
+<div class=page>
+  <h1>Weibo</h1>
+  <div class=navigation>
+  {% if g.user %}
+    <a href="{{ url_for('myweibo') }}">我的圈子</a> |
+    <a href="{{ url_for('public_info') }}">所有微博</a> |
+    <a href="{{ url_for('profile') }}">我的资料</a> |
+    <a href="{{ url_for('all_user') }}">所有用户</a> |
+     <a href="{{ url_for('user_manage') }}">用户管理</a> |
+    <a href="{{ url_for('show_graph') }}">信息演化</a>|
+    <a href="{{ url_for('show_curve') }}">信息传播</a>|
+    <a href="{{ url_for('logout') }}">登出 [{{ g.user.username }}]</a>   
+  {% else %}
+    <a href="{{ url_for('public_info') }}">所有微博</a> |
+    <a href="{{ url_for('all_user') }}">所有用户</a> |
+    <a href="{{ url_for('user_manage') }}">用户管理</a>|
+    <a href="{{ url_for('show_graph') }}">信息演化</a>|
+    <a href="{{ url_for('show_curve') }}">信息传播</a>|
+    <a href="{{ url_for('login') }}">登录</a>  |
+    <a href="{{ url_for('register') }}">注册</a>
+  {% endif %}
+  </div>
+  {% with flashes = get_flashed_messages() %}
+    {% if flashes %}
+      <ul class=flashes>
+      {% for message in flashes %}
+        <li>{{ message }}
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}  
+  <div class=body>
+  {% block body %}{% endblock %}
+  </div>
+</div>
+
+<footer>
+    Copyright SNS-BDT-ysl 2015. All rights reserved.
+</footer>

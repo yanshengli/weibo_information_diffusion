@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ profile_user.username }}的微博{% endblock %}
+
+
+{% block body %}
+	{% if request.endpoint == 'profile'%}
+		<div class="profile">
+			<table>
+				<tr>
+					<td>用户名:</td>
+					<td>{{ profile_user.username }}</td>
+				</tr>
+				<tr>
+					<td>邮箱:</td>
+					<td>{{ profile_user.email }}</td>
+				</tr>
+				<tr>
+					<td>签名:</td>
+					<td>{{ profile_user.signature }}</td>
+				</tr>
+				<tr>
+					<td>注册日期:</td>
+					<td>{{ profile_user.reg_date }}</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="edit_profile">
+			<a href="{{ url_for('edit_profile') }}">编辑</a>
+		</div>
+	{% endif %}
+
+	{% if request.endpoint == 'edit_profile' %}
+		<div class="profile">
+			<form action="{{ url_for('edit') }}" method=post>
+		     	<dl>
+		      		<dt>用户名:
+		      		<dd><input type=text name=username size=30 value="{{ profile_user.username }}">
+			      	<dt>E-Mail:
+			      	<dd><input type=text name=email size=30 value="{{ profile_user.email }}">
+			      	<dt>签名:
+			      	<dd><input type=text name=signature size=30 value="{{ profile_user.signature }}">
+		    	</dl>
+		    	<input type=submit value="保存">
+		  </form>
+		</div>
+	{% endif%}
+{% endblock %}
+
+

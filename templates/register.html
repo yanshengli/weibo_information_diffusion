@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}注册{% endblock %}
+{% block body %}
+  <h2>注册</h2>
+  {% if error %}<div class=error><strong>错误:</strong> {{ error }}</div>{% endif %}
+  <form action="" method=post>
+    <dl>
+      <dt>用户名:
+      <dd><input type=text name=username size=30 value="">
+      <dt>E-Mail:
+      <dd><input type=text name=email size=30 value="">
+      <dt>密码:
+      <dd><input type=password name=password size=30>
+      <dt>确认密码:
+      <dd><input type=password name=password2 size=30>
+      <dt>签名:
+      <dd><input type=text name=signature size=30>
+    </dl>
+    <div class=actions><input type=submit value="注册"></div>
+  </form>
+{% endblock %}
