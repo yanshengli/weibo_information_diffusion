@@ -22,6 +22,7 @@ DEMO:
 <img src="images/image3.png" alt="img3">
 
 技术架构：
+
 flask-web-application
 microblog application with flask
 
@@ -33,3 +34,10 @@ build a web-application based on nginx+flask+uwsgi+sqlachmey if you want to use 
 
 3.install sqlachmey
 
+功能框架：
+
+mywebsite.py：后台application主程序
+
+schema.sql：数据库
+
+build_graph_curve.py：构建信息传播基础拓扑，采用networkx库处理数据，构建信息演化动态图，采用Numpy开源库处理数据
